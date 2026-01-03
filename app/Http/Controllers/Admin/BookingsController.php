@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MassDestroyBookingRequest;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Requests\UpdateBookingRequest;
 use App\Models\Booking;
@@ -14,6 +16,16 @@ use Symfony\Component\HttpFoundation\Response;
 
 class BookingsController extends Controller
 {
+
+      use HasFactory;
+
+    protected $fillable = [
+        'user_id',
+        'ride_id',
+        'seat_id',
+        'status',
+    ];
+
     public function index()
     {
         abort_if(Gate::denies('booking_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
@@ -88,5 +100,15 @@ class BookingsController extends Controller
         Booking::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function ride()
+    {
+        return $this->belongsTo(Ride::class);
     }
 }

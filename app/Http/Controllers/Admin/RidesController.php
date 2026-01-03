@@ -8,6 +8,7 @@ use App\Http\Requests\StoreRideRequest;
 use App\Http\Requests\UpdateRideRequest;
 use App\Models\Bus;
 use App\Models\Ride;
+use App\Models\Booking;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -80,5 +81,15 @@ class RidesController extends Controller
         Ride::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function bookings()
+    {
+    return $this->hasMany(Booking::class);
+}
+
+    public function bus()
+    {
+        return $this->belongsTo(Bus::class);
     }
 }

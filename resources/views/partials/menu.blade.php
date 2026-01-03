@@ -8,7 +8,7 @@
 
     <ul class="c-sidebar-nav">
         <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.home") }}" class="c-sidebar-nav-link">
+            <a href="{{ route("admin.home")}} class="c-sidebar-nav-link">
                 <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
 
                 </i>
@@ -87,6 +87,14 @@
                 </a>
             </li>
         @endcan
+        
+        <li class="c-sidebar-nav-item">
+    <a href="{{ route('admin.Payment.index') }}" class="c-sidebar-nav-link">
+        <i class="fa-fw fas fa-file-invoice-dollar c-sidebar-nav-icon"></i>
+        Riwayat Pembayaran
+    </a>
+</li>
+
         @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')
                 <li class="c-sidebar-nav-item">
@@ -97,6 +105,9 @@
                     </a>
                 </li>
             @endcan
+
+            
+
         @endif
         <li class="c-sidebar-nav-item">
             <a href="#" class="c-sidebar-nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">

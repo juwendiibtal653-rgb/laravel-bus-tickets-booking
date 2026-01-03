@@ -52,6 +52,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     // Bookings
     Route::delete('bookings/destroy', 'BookingsController@massDestroy')->name('bookings.massDestroy');
     Route::resource('bookings', 'BookingsController');
+
+    // Payments
+    Route::delete('payments/destroy', 'PaymentsController@massDestroy')->name('payments.massDestroy');
+    Route::resource('payments', 'PaymentsController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Http\Controllers\Auth', 'middleware' => ['auth']], function () {
     // Change password
@@ -60,3 +64,8 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'App\Htt
         Route::post('password', 'ChangePasswordController@update')->name('password.update');
     }
 });
+
+Route::get('admin/payments', function () {
+    return view('admin.Payment.index');
+})->name('admin.Payment.index');
+
