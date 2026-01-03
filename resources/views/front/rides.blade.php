@@ -20,15 +20,18 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img src="https://images.unsplash.com/photo-1570125909232-eb263c186902?w=1600&h=700&fit=crop&q=80" class="d-block w-100" alt="Bus on a road">
-            <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
-                <div class="text-center text-white">
-                    <h1 class="display-3 font-weight-bold">Explore New Destinations</h1>
-                    <p class="lead mb-4">Find the best routes and prices for your next adventure.</p>
-                    <a href="#rides-section" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm font-weight-bold">See Routes</a>
-                </div>
-            </div>
+    <img src="{{ asset('img/bus-road.jpg') }}" class="d-block w-100" alt="Bus on a road">
+    <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
+        <div class="text-center text-white">
+            <h1 class="display-3 font-weight-bold">Explore New Destinations</h1>
+            <p class="lead mb-4">Find the best routes and prices for your next adventure.</p>
+            <a href="#rides-section" class="btn btn-primary btn-lg rounded-pill px-5 shadow-sm font-weight-bold">
+                See Routes
+            </a>
         </div>
+    </div>
+</div>
+
         <div class="carousel-item">
             <img src="https://images.unsplash.com/photo-1525962952978-125c05a85618?w=1600&h=700&fit=crop&q=80" class="d-block w-100" alt="Bus interior">
             <div class="carousel-caption d-flex h-100 align-items-center justify-content-center">
